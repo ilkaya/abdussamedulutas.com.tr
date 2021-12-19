@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "outDir": "./typescript",
+        "allowJs": true,
+        "charset": "UTF-8",
+        "jsx": "react-jsx",
+        "target": "ES6",
+        "declaration": true,
+        "declarationMap": true,
+        "lib": [
+            "DOM",
+            "ESNext"
+        ],
+        "sourceMap": false,
+        "baseUrl": ".",
+        "module": "CommonJS",
+        "moduleResolution": "Node",
+        "allowSyntheticDefaultImports": true
+    }
+}

@@ -1,0 +1,19 @@
+html,body{
+    height: 100%;
+    margin: 0;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    font-family: Cantarell;
+}
+#root{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    overflow: auto;
+}
+
+@import url(fonts/Ubuntu/style.css);
+@import url(fonts/Cantarell/style.css);
+@import url(fonts/FontAwesome/styles.min.css);
