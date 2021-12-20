@@ -17,7 +17,6 @@ function A({link,children})
         caniusertc:"https://caniuse.com/rtcpeerconnection",
         rtcwebrtc:"https://w3c.github.io/webrtc-pc/"
     };
-    return children;
     return <a href={w[link]} target="_blank">{children}</a>;
 }
 

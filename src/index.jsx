@@ -17,6 +17,10 @@ import Websocket from "./pages/frontend/websocket/index"
 import indexeddb from "./pages/frontend/indexeddb/index"
 import canvas from "./pages/frontend/canvas/index"
 import webworker from "./pages/frontend/webworker/index"
+import mediastream from "./pages/frontend/mediastream/index"
+import cachestorage from "./pages/frontend/cachestorage/index"
+
+
 import Iletisim from "./pages/iletisim";
 
 
@@ -47,6 +51,8 @@ function App()
                         <Route path="/frontend/indexeddb" component={indexeddb}/>
                         <Route path="/frontend/canvas" component={canvas}/>
                         <Route path="/frontend/webworker" component={webworker}/>
+                        <Route path="/frontend/mediastream" component={mediastream}/>
+                        <Route path="/frontend/cachestorage" component={cachestorage}/>
                         <Route path="/iletisim" component={Iletisim}/>
                         <Route exact path="/"> <Redirect /> </Route>
                     </Switch>

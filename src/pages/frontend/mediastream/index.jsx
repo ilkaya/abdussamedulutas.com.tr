@@ -6,7 +6,7 @@ import moment from "moment";
 export default function WebSocket()
 {
     useEffect(()=>{
-        document.title = "Abdussamed ULUTAŞ | WebWorker";
+        document.title = "Abdussamed ULUTAŞ | Media Stream";
     },[]);
 
     let cardProperty = {
@@ -21,85 +21,55 @@ export default function WebSocket()
     }
 
     return <>
-        <dh.H1>WebWorker</dh.H1>
+        <dh.H1>Media Stream (Medya Akışları)</dh.H1>
         <Box display="flex" flexDirection="row" flexWrap="wrap">
-        <Card {...cardProperty}>
+            <Card {...cardProperty}>
                 <CardHeader
-                    title={<dh.H2>WebWorker nedir?</dh.H2>}
+                    title={<dh.H2>MediaStream nedir?</dh.H2>}
                 />
                 <CardContent style={{textAlign:"justify"}}>
-                    Tarayıcılar her websitesi için sekme başına bir javascript iş parçacığı çalıştırmak üzere tasarlanır.
-                    Çoğu durumda web tasarımcıları javascript üzerine yüksek hesap gerektiren algoritmalar yazmaktan kaçınırlar,
-                    bunun en büyük sebebi ise yüksek işlemci yoğunluğunda web sitesi arayüzünün donması/kasması takılmasıdır.
-                    WebWorker, yoğun işlem gerektiren işlemlerde yazılımcıların  algoritmalarını farklı işlemci çekirdeğinde
-                    çalıştırarak arayüzde donmaların önüne geçerken aynı zamanda hesaplamaları arkaplanda devam etmelerini sağlar
+                    Akışlar, başlangıcı bitişi veya süresi hakkında önceden belirlenemeyen verilerdir.
+                    Bunun yerine tarayıcı kamera mikrofon gibi akış aygıtlarına erişimi sembolik yapılar üzerinden
+                    erişmenizi sağlayarak veriyi kaydetme, yönlendirme, aktarma ve çizme işlemlerinde
+                    çözünürlüğü veya kodeği hesaba katmadan daha rahatça uygulamalar oluşturmanızı sağlar
                 </CardContent>
             </Card>
             <Card {...cardProperty}>
                 <CardHeader
-                    title={<dh.H2>WebWorker Güvenli mi?</dh.H2>}
+                    title={<dh.H2>Neler MediaStream Çıktısı Verir?</dh.H2>}
                 />
                 <CardContent style={{textAlign:"justify"}}>
-                    Günümüzde webworkerlar her ne kadar kötü niyetli yazılımcıların kripto para basmak için en çok kullandıkları
-                    yöntem olsada sunucudan gelen büyük verileri arkaplanda atarak, filtreleme, arama, farkı bulma benzeri işlemleri
-                    web siteniz stres altındayken dahi hızlı bir şekilde çözmenizi sağlar ve bu durum SEO açısından da çoğu zaman
-                    olumlu olarak yorumlanır
+                    Kamara, Mikrofon ve Ekran paylaşım apisi en yaygın kullanılan MediaStream kaynaklarından biridir.
+                    Bunun yanı sıra Canvas, Video ve Audio elementleri üzerindende suni bir akış elde edilebilir
                 </CardContent>
             </Card>
             <Card {...cardProperty}>
                 <CardHeader
-                    title={<dh.H2>WebWorker için Sunucu Yapılandırması Gerekir?</dh.H2>}
+                    title={<dh.H2>MediaStream Verisi Ne İşe Yarar?</dh.H2>}
                 />
                 <CardContent style={{textAlign:"justify"}}>
-                    Hayır, tarayıcılarda dahili olarak desteklenen apidir ve sunucu tarafında herhangi bir işleme gerek yoktur
+                    MediaStream görüntü, ses ve altyazı gibi verileri küçük parçalar haline tutar,
+                    mediastream'in sağladığı fonksiyonlar sayesinde iki videoyu birleştirebilir,
+                    bir videonun sesini değiştirebilir veya varolan akışı webrtc üzerinden
+                    farklı bir cihaza gönderebilirsiniz
                 </CardContent>
             </Card>
             <Card {...cardProperty}>
                 <CardHeader
-                    title={<dh.H2>WebWorker Avantajı Nedir?</dh.H2>}
+                    title={<dh.H2>MediaStream Nerde Kullanılabilir?</dh.H2>}
                 />
                 <CardContent style={{textAlign:"justify"}}>
-                    WebWorker, kolayca hazırlanıp rahatça debug edilebilmektedir. Ana süreçte yaptığınız sonsuz döngü hatalardan dolayı donan
-                    tarayıcının aksine webworkerde gerçekleştirdiğiniz bu tip hatalar tarayıcıyı veya sekmeyi kilitlememektedir.
-                    Ayrıca ana süreç ile WebWorker arasında oluşturulan hat sayesinde iki taraf arasında kolayca veri iletimi gerçekleştirebilirsiniz
+                    Bir kamera çıktısını ekranda yansıtarak kullanıcının kendi profil görüntüsünü işlemesini sağlayabilir
+                    WebRTC üzerinde kullanarak görüntülü görüşme uygulamalarında kullanabilir veya HLS üzerinden
+                    podcast yayını yapabilirsiniz
                 </CardContent>
             </Card>
             <Card {...cardProperty}>
                 <CardHeader
-                    title={<dh.H2>WebWorker Dezavantajı Nedir?</dh.H2>}
+                    title={<dh.H2>MediaStream Hangi Platformları Kapsıyor?</dh.H2>}
                 />
                 <CardContent style={{textAlign:"justify"}}>
-                    C#, java gibi dillerindeki thread yapısının aksine WebWorker bir javascript alanında çalışmaya başlatılamaz,
-                    her webworker kendine özel javascript dosyası ile çalışmaya başlar
-                </CardContent>
-            </Card>
-            <Card {...cardProperty}>
-                <CardHeader
-                    title={<dh.H2>WebWorker Hangi Platformları Kapsıyor?</dh.H2>}
-                />
-                <CardContent style={{textAlign:"justify"}}>
-                WebWorker her ne kadar mobil ve masaüstü farketmeksizin <b>güncel</b> tüm web tarayıcılarında aktif olarak destekleniyor gibi
-                görünsede performans kaygısından ötürü bazı tarayıcılar mobil webview veya iframe tarafında bazı kısıtlamalar getirebilmektedir
-                </CardContent>
-            </Card>
-            <Card {...cardProperty}>
-                <CardHeader
-                    title={<dh.H2>Peki WebWorker ile Ne Yapılamaz?</dh.H2>}
-                />
-                <CardContent style={{textAlign:"justify"}}>
-                    WebWorker, arayüz yapılarına direkt erişimi <b>yoktur</b>, webworker içerisinde video gösteremez bildirim dışında
-                    her hangi bir arayüz güncellemesini webworker içerisinden yapamazsınız bunun yerine işlenen verileri
-                    alıp güncellenecek veriler için webworker dışında ek kod yazmanız gerekir. 
-                </CardContent>
-            </Card>
-            <Card {...cardProperty}>
-                <CardHeader
-                    title={<dh.H2>SharedWorker Nedir ?</dh.H2>}
-                />
-                <CardContent style={{textAlign:"justify"}}>
-                    Bir WebWorker aynı domainden birden fazla sekme ile haberleşmeyi sağlayabilir (SharedWorker).
-                    Veya bir Worker'i tüm sekmeler kapatılsa dahi, arkaplanda bildirimleri veya değişimleri
-                    alması için çalışmasına devam ettirebilirsiniz (ServiceWorker)
+                WebWorker mobil veya masaüstü farketmeksizin <b>güncel</b> tüm web tarayıcılarında aktif olarak desteklenmektedir
                 </CardContent>
             </Card>
         </Box>

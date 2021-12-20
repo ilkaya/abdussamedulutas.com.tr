@@ -37,7 +37,6 @@ export default function Content({select,...props})
                                 <Divider />
                                 <RouteItem url="/frontend/mediastream" title="Media Stream" text="Kamera, Mikrofon Video"/>
                                 <Divider />
-                                
                                 <RouteItem url="/frontend/cachestorage" title="Cache Storage" text="Tarayıcı Önbelleğine Veri Yazma/Okuma" />
                                 <Divider />
                             </CollapsedListItem>
