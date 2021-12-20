@@ -87,24 +87,28 @@
     src: url(fonts/ttf/Cantarell-Bold-89767.ttf) format("truetype");
     font-weight: 700;
     font-style: bold;
+    font-display: swap;
 }
 @font-face {
     font-family: "Cantarell";
     src: url(fonts/ttf/Cantarell-Regular-ebc1a.ttf) format("truetype");
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 @font-face {
     font-family: "Cantarell";
     src: url(fonts/ttf/Cantarell-Oblique-933a9.ttf) format("truetype");
     font-weight: normal;
     font-style: italic;
+    font-display: swap;
 }
 @font-face {
     font-family: "Cantarell";
     src: url(fonts/ttf/Cantarell-BoldOblique-7a5e0.ttf) format("truetype");
     font-weight: bold;
     font-style: italic;
+    font-display: swap;
 }
 /*!
  *  Font Awesome 4.6.3 by @davegandy - http://fontawesome.io - @fontawesome

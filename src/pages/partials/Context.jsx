@@ -1,19 +1,18 @@
 import { Avatar, Collapse, Divider, List, ListItem, ListItemButton, ListItemText, Paper } from "@mui/material";
-import React, { useState } from "react"
+import React, { useState,useEffect } from "react"
 import { useHistory } from "react-router";
-
-import icon from "../../images/icon.webp";
 import "./Context.scss";
 
 import profile_webp from "../../images/profile.webp";
 import { Box } from "@mui/system";
 import { ExpandLess, ExpandMore } from "@mui/icons-material";
+import { useDispatch, useSelector, useStore } from "react-redux";
+import { SetPage } from "../../redux/default.redux";
 export default function Content({select,...props})
 {
-    let history = useHistory();
     return <>
         <Box flex={1} m={2} display={"flex"} sx={{flexDirection:{md:"row",xs:"column"},overflow: {md:"auto",xs:"visible"}}}>
-            <Box sx={{width:{sm:"20vw",xs:"100%"},maxWidth:{sm:"300px"},minWidth:{sm:"200px"}}} mb={2}>
+            <Box sx={{width:{sm:"20vw",xs:"100%"},maxWidth:{sm:"300px"},minWidth:{sm:"200px"},p:{md:1,sm:0}}} mb={2}>
                 <Paper variant="elevation" elevation={5} style={{width:"100%",height:"100%",display:"flex",flexDirection:"column"}}>
                     <Box>
                         <img async defer src={profile_webp} className="profile-image" alt="Profile Image" />
@@ -21,105 +20,63 @@ export default function Content({select,...props})
                     <Box flex={1} overflow="auto">
                         <List>
                             <Divider />
-                            <ListItemButton onClick={e => history.push("/ozgecmis")} selected={select === 0}>
-                                <ListItemText primary="Özgeçmiş"/>
-                            </ListItemButton>
+                            <RouteItem url="/ozgecmis" title="Özgeçmiş" />
                             <Divider />
                             <CollapsedListItem primary="FrontEnd Teknolojiler">
-                                <ListItemButton onClick={e => history.push("/frontend/webrtc")} selected={select === 1}>
-                                    <ListItemText primary="WebRTC" secondary="P2P Gerçek Zamanlı Bağlantı"/>
-                                </ListItemButton>
+                                <RouteItem url="/frontend/webrtc" title="WebRTC" text="P2P Gerçek Zamanlı Bağlantı"/>
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/frontend/react")} selected={select === 1}>
-                                    <ListItemText primary="React" secondary="JSX, Webpack, Redux Yüksek Hızlı Arayüzler Tasarlama"/>
-                                </ListItemButton>
+                                <RouteItem url="/frontend/react" title="React" text="JSX, Webpack, Redux Yüksek Hızlı Arayüzler Tasarlama"/>
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/frontend/websocket")} selected={select === 2}>
-                                    <ListItemText primary="WebSocket" secondary="Sunucu ile Yüksek Hızlı İletişim"/>
-                                </ListItemButton>
+                                <RouteItem url="/frontend/websocket" title="WebSocket" text="Sunucu ile Yüksek Hızlı İletişim"/>
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/frontend/indexeddb")} selected={select === 4}>
-                                    <ListItemText primary="IndexedDB" secondary="Tarayıcı Tarafında İlişkisel Veritabanı"/>
-                                </ListItemButton>
+                                <RouteItem url="/frontend/indexeddb" title="IndexedDB" text="Tarayıcı Tarafında İlişkisel Veritabanı"/>
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/frontend/canvas")} selected={select === 3}>
-                                    <ListItemText primary="Canvas" secondary="Düşük Seviyeli Grafik İşleme"/>
-                                </ListItemButton>
+                                <RouteItem url="/frontend/canvas" title="Canvas" text="Düşük Seviyeli Grafik İşleme"/>
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/frontend/webworker")} selected={select === 5}>
-                                    <ListItemText primary="Web Worker" secondary="Thread Yapısı"/>
-                                </ListItemButton>
+                                <RouteItem url="/frontend/webworker" title="Web Worker" text="Thread Yapısı" />
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/frontend/mediastream")} selected={select === 6}>
-                                    <ListItemText primary="Media Stream" secondary="Kamera, Mikrofon Video"/>
-                                </ListItemButton>
+                                <RouteItem url="/frontend/mediastream" title="Media Stream" text="Kamera, Mikrofon Video"/>
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/frontend/cachestorage")} selected={select === 7}>
-                                    <ListItemText primary="Cache Storage" secondary="Tarayıcı Önbelleğine Veri Yazma/Okuma"/>
-                                </ListItemButton>
+                                <RouteItem url="/frontend/cachestorage" title="Cache Storage" text="Tarayıcı Önbelleğine Veri Yazma/Okuma" />
                                 <Divider />
                             </CollapsedListItem>
                             <Divider />
                             <CollapsedListItem primary="Backend Teknolojiler">
-                                <ListItemButton onClick={e => history.push("/backend/ffmpeg")} selected={select === 8}>
-                                    <ListItemText primary="FFMPEG" secondary="Video, Resim, Ses kodlama"/>
-                                </ListItemButton>
+                                <RouteItem url="/backend/ffmpeg" title="FFMPEG" text="Video, Resim, Ses kodlama" />
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/backend/nodejs")} selected={select === 9}>
-                                    <ListItemText primary="NodeJS" secondary="WebSocket, Restfull API, HTTP/2.0"/>
-                                </ListItemButton>
+                                <RouteItem url="/backend/nodejs" title="NodeJS" text="WebSocket, Restfull API, HTTP/2.0"  />
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/backend/nginx")} selected={select === 10}>
-                                    <ListItemText primary="NGINX" secondary="Reverse Proxy, Automated SSL, Multidomain Sunucu"/>
-                                </ListItemButton>
+                                <RouteItem url="/backend/nginx" title="NGINX" text="Reverse Proxy, Automated SSL, Multidomain Sunucu" />
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/backend/cryptology")} selected={select === 11}>
-                                    <ListItemText primary="Kriptoloji" secondary="OpenSSL, AES128 GCM, Hashing, Diffie Hellman, Akış Şifreleme"/>
-                                </ListItemButton>
+                                <RouteItem url="/backend/cryptology" title="Kriptoloji" text="OpenSSL, AES128 GCM, Hashing, Diffie Hellman, Akış Şifreleme" />
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/backend/stunturn")} selected={select === 12}>
-                                    <ListItemText primary="TURN/STUN" secondary="Görüntülü / Sesli Görüşme / Ekran Paylaşımı"/>
-                                </ListItemButton>
+                                <RouteItem url="/backend/stunturn" title="TURN/STUN" text="Görüntülü / Sesli Görüşme / Ekran Paylaşımı" />
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/backend/mysql")} selected={select === 13}>
-                                    <ListItemText primary="MariaDB" secondary="İlişkisel Veritabanı"/>
-                                </ListItemButton>
+                                <RouteItem url="/backend/mysql" title="MariaDB" text="İlişkisel Veritabanı" />
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/backend/redis")} selected={select === 14}>
-                                    <ListItemText primary="Redis" secondary="Bellek Tabanlı Önbellek Depolama"/>
-                                </ListItemButton>
+                                <RouteItem url="/backend/redis" title="Redis" text="Bellek Tabanlı Önbellek Depolama" />
                                 <Divider />
                             </CollapsedListItem>
                             <Divider />
                             <CollapsedListItem primary="Manjaro Linux">
-                                <ListItemButton onClick={e => history.push("/manjaro/neden")} selected={select === 15}>
-                                    <ListItemText primary="Neden Manjaro?" secondary="Güncel Linüx Kernel, Python, JVM, GCC, PHP, Nodejs Hızlandırma Teknolojisi"/>
-                                </ListItemButton>
+                                <RouteItem url="/manjaro/neden" title="Neden Manjaro?" text="Güncel Linüx Kernel, Python, JVM, GCC, PHP, Nodejs Hızlandırma Teknolojisi" />
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/manjaro/kurulum")} selected={select === 16}>
-                                    <ListItemText primary="Güvenli ve Hızlı Kurulum" secondary="64bit Makine, Kurmadan Önce Canlı Test Etme"/>
-                                </ListItemButton>
+                                <RouteItem url="/manjaro/kurulum" title="Güvenli ve Hızlı Kurulum" text="64bit Makine, Kurmadan Önce Canlı Test Etme" />
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/manjaro/ozellestirme")} selected={select === 17}>
-                                    <ListItemText primary="Kişiselleştirme" secondary="KDE Masaüstü, Dil, Zaman, Bölge ve Güç Ayarları"/>
-                                </ListItemButton>
+                                <RouteItem url="/manjaro/ozellestirme" title="Kişiselleştirme" text="KDE Masaüstü, Dil, Zaman, Bölge ve Güç Ayarları" />
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/manjaro/yazilimlar")} selected={select === 17}>
-                                    <ListItemText primary="Pacman / Pamac" secondary="Hızlı Yazılım Kurma Kaldırma ve Sistem Güncellemesi Güncelleme"/>
-                                </ListItemButton>
+                                <RouteItem url="/manjaro/yazilimlar" title="Pacman / Pamac" text="Hızlı Yazılım Kurma Kaldırma ve Sistem Güncellemesi Güncelleme" />
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/manjaro/mhwd")} selected={select === 17}>
-                                    <ListItemText primary="MHWD" secondary="AMD, NVidia, İntel Çoklu Ekran Kartı Sistemleri İçin Driver Kurma Kaldırma"/>
-                                </ListItemButton>
+                                <RouteItem url="/manjaro/mhwd" title="MHWD" text="AMD, NVidia, İntel Çoklu Ekran Kartı Sistemleri İçin Driver Kurma Kaldırma" />
                                 <Divider />
                             </CollapsedListItem>
                             <Divider />
                             <CollapsedListItem primary="Kendi Projelerim">
-                                <ListItemButton onClick={e => history.push("/github/hemexjs")} selected={select === 15}>
-                                    <ListItemText primary="HemexJS" secondary="Metin Madenciliği Format Biçimlendirme, İşleme ve Dönüştürme Kütüphanesi"/>
-                                </ListItemButton>
+                                <RouteItem url="/github/hemexjs" title="HemexJS" text="Metin Madenciliği Format Biçimlendirme, İşleme ve Dönüştürme Kütüphanesi" />
                                 <Divider />
                             </CollapsedListItem>
+                            <Divider />
+                            <RouteItem url="/iletisim" title="Bana Ulaşın" />
                         </List>
                     </Box>
                 </Paper>
@@ -156,4 +113,25 @@ function CollapsedListItem({primary,children})
             </List>
         </Collapse>
     </>
+}
+
+function RouteItem({url,title,text,soon})
+{
+    let history = useHistory();
+    let dispatch = useDispatch();
+    let {page} = useSelector(e => e.defaultRedux)
+    
+    function click()
+    {
+        history.push(url);
+        dispatch({
+            type:"ch/page",
+            payload: url
+        });
+    }
+    return <>
+        <ListItemButton onClick={click} selected={page == url} disabled={soon}>
+            <ListItemText primary={title} secondary={soon ? "Eklenmemiş" : text}/>
+        </ListItemButton>
+    </>;
 }

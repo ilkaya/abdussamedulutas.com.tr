@@ -3,6 +3,16 @@ import { Box } from "@mui/system";
 import { Card, CardContent, CardHeader, Divider, List, ListItem, ListItemText, Typography } from "@mui/material";
 import moment from "moment";
 
+function A({link,children})
+{
+    let w = {
+        wikireact:"https://en.wikipedia.org/wiki/React_(JavaScript_library)",
+        mdnreact:"https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started",
+        reactjsx:"https://tr.reactjs.org/docs/introducing-jsx.html",
+        wikiwebpack:"https://en.wikipedia.org/wiki/Webpack"
+    };
+    return <a href={w[link]} target="_blank">{children}</a>
+}
 
 export default function ReactJS()
 {
@@ -33,6 +43,9 @@ export default function ReactJS()
                     Bir web sitesinin tüm sayfalarını, kompanentlerini ve stillerini bir arada tutarak kullanıcıya hızlı sayfa geçişleri ve
                     görsel değişimleri sunmanıza olanak tanırken geliştirici tarafında da oldukça esnek programlamaya olanak tanır ve
                     projelerin ivmelenerek ilerlemesini sağlar
+                    <br /><br />
+                    <A link="wikireact">Wikipedia</A><br />
+                    <A link="mdnreact">Mozilla Developer Network</A>
                 </CardContent>
             </Card>
             <Card {...cardProperty}>
@@ -40,19 +53,19 @@ export default function ReactJS()
                     title={<dh.H2>Neden React?</dh.H2>}
                 />
                 <CardContent style={{textAlign:"justify"}}>
-                    React içerisinde dahili olarak kullanılan JSX formatı sayesinde javascript komutları ile html kodlarını
+                    React içerisinde dahili olarak kullanılan <A link={"reactjsx"}>JSX</A> formatı sayesinde javascript komutları ile html kodlarını
                     iç içe kullanmanızı sağlayarak görünümü kalıplara, modeller, nesneye yönelik şemalar halinde yönetmenizi sağlar.
                     Kullanıcı ile etkileşim esnasında iç içe yerleştirilmiş görünümleri belirli durumlarda tekrar yorumlayarak
-                    arayüz değişimlerini create, update, read veya delete komutlarını elle yazmak yerine otomatik olarak çözümler
+                    arayüz değişimlerini ek kodlama gerek yapmadan otomatik güncelleyecektir
                 </CardContent>
             </Card>
             <Card {...cardProperty}>
                 <CardHeader
-                    title={<dh.H2>Performans ?</dh.H2>}
+                    title={<dh.H2>React Performansı Nasıl?</dh.H2>}
                 />
                 <CardContent style={{textAlign:"justify"}}>
                     React ile yazılmış proje içerisinde yüzlerce jsx dosyası ve onlarca css, ts veya svg dosyası bulunabilir,
-                    Webpack tüm dosyaları çözümleyip olabildiğinde tek bir dosyaya derleme çalışacaktır. Tüm bir temayı paketleyip
+                    <A link="wikiwebpack">Webpack</A> tüm dosyaları çözümleyip olabildiğinde tek bir dosyaya derleme çalışacaktır. Tüm bir temayı paketleyip
                     kullanıcıya gönderebilirsiniz, böylece kullanıcı basit arayüz güncellemeleri veya sayfa geçişlerinde tekrar
                     sunucunuza istek atmak zorunda kalmayacaktır. Bu durum hem sunucu tarafında hemde arayüz tarafında yüksek performans sağlar
                 </CardContent>

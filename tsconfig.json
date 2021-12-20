@@ -5,8 +5,8 @@
         "charset": "UTF-8",
         "jsx": "react-jsx",
         "target": "ES6",
-        "declaration": true,
-        "declarationMap": true,
+        "declaration": false,
+        "declarationMap": false,
         "lib": [
             "DOM",
             "ESNext"

@@ -2,6 +2,23 @@ import React, { useEffect } from "react"
 import { Box } from "@mui/system";
 import { Card, CardContent, CardHeader, Divider, List, ListItem, ListItemText, Typography } from "@mui/material";
 import moment from "moment";
+function A({link,children})
+{
+    let w = {
+        wikiwebrtc:"https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API",
+        mdnwebrtc: "https://en.wikipedia.org/wiki/WebRTC",
+        mdncreateOffer:"https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection/createOffer",
+        mdncreateAnswer:"https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection/createAnswer",
+        mdnice:"https://developer.mozilla.org/en-US/docs/Glossary/ICE",
+        mdncreateDataChannel:"https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection/createDataChannel",
+        wikip2p:"https://en.wikipedia.org/wiki/Peer-to-peer",
+        wikistun:"https://en.wikipedia.org/wiki/STUN",
+        wikiturn:"https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT",
+        caniusertc:"https://caniuse.com/rtcpeerconnection",
+        rtcwebrtc:"https://w3c.github.io/webrtc-pc/"
+    };
+    return <a href={w[link]} target="_blank">{children}</a>;
+}
 
 
 export default function WebRTC()
@@ -30,9 +47,13 @@ export default function WebRTC()
                 />
                 <CardContent style={{textAlign:"justify"}}>
                     WebRTC <b>tarayıcılar</b> arasında yüksek hızlı iletişim sağlayan ses ve görüntü
-                    iletişimini en düşük gecikme ile karşı tarafa ileten karmaşık, güvenilir ve gelişmiş bir teknolojidir.
-                    Şuan bir çok görüntülü konuşma, anlık sesli iletişim, mesajlaşma, P2P dosya paylaşımı yapan sistemlerin
+                    iletişimini en düşük gecikme ile karşı tara a ileten karmaşık, güvenilir ve gelişmiş bir teknolojidir.
+                    Şuan bir çok görüntülü konuşma, anlık sesli iletişim, mesajlaşma, <A link="wikip2p">P2P</A> dosya paylaşımı yapan sistemlerin
                     alt yapısında webrtc kullanılmaktadır
+                    <br/><br/>
+                    <A link="mdnwebrtc">Mozilla Developer Network</A>
+                    <br/>
+                    <A link="wikiwebrtc">Wikipedia</A>
                 </CardContent>
             </Card>
             <Card {...cardProperty}>
@@ -41,9 +62,11 @@ export default function WebRTC()
                 />
                 <CardContent style={{textAlign:"justify"}}>
                     Sunucuya bağlı iki şahıs kendi aralarında bağlanmak istediklerinde
-                    her şahıs diğerine teklif (offer) denilen veri gönderir ve cevap verisini bekler.
-                    Daha sonra açık ip adreslerini birbirlerine gönderirler bu işleme sinyalizasyon adı verilir.
-                    Bu aşamada her iki tarafta birbirine bağlanır ve arada sunucu olmadan (P2P) iletişim sağlanmış olur
+                    Bağlantıyı başlatan şahıs diğerine <A link="mdncreateOffer">teklif</A> denilen veri gönderir.
+                    buna karşılık diğeri ise bu veriye karşılı bir <A link="mdncreateAnswer">cevap</A> üretir ve gönderir.
+                    Daha sonra her ikiside birbirlerine ulaşmak için açık ip adreslerini içeren <A link="mdnice">icecandicate</A> üretirler ve bu paketleri
+                    yine birbirlerine iletildikten sonra iki tarafta birbirine bağlanmaya başlarlar, bu işleme sinyalizasyon adı verilir.
+                    Ve bu bağlantı kurulduktan sonra arada sunucu olmadan (<A link="wikip2p">P2P</A>) iletişim sağlanmış olur
                 </CardContent>
             </Card>
             <Card {...cardProperty}>
@@ -54,7 +77,7 @@ export default function WebRTC()
                     WebRTC teknolojisi alt yapısal olarak stream veya stream olmayan verileri iletebilir
                     Stream tarayısı apileri üzerinden kameraya, mikrofona ve ekrana erişim sağlanarak alınabilir,
                     WebRTC görüntü ve ses verilerini UDP bağlantısı sağlayarak düşük gecikmeyle ulaştırabilmektedir.
-                    WebRTC ayrıca datachannel denilen bir TCP bağlantısı üzerinden binary, json, xml gibi verileride iletebilmektedir.
+                    WebRTC ayrıca <A link="mdncreateDataChannel">datachannel</A> denilen bir TCP bağlantısı üzerinden binary, json, xml gibi verileride iletebilmektedir.
                 </CardContent>
             </Card>
             <Card {...cardProperty}>
@@ -64,7 +87,7 @@ export default function WebRTC()
                 <CardContent style={{textAlign:"justify"}}>
                     WebRTC için sunucu sadece sinyalizasyon aşamasında bağlanacak kişilerin arasında ilk veriyi sağlamak için gereklidir.
                     Bunun dışında gerçek ipnizin bulunmasını zorlaştıracak vpn veya proxy gibi bir ağ geçidi kullanıyorsanız veya okul, şirket, fabrika
-                    gibi güvenlik duvarının bağlantıyı engelleyebileceği durumlarda TURN/STUN sunucusu kullanmanız gerekebilir
+                    gibi güvenlik duvarının bağlantıyı engelleyebileceği durumlarda <A link="wikiturn">TURN</A>/<A link="wikistun">STUN</A> sunucusu kullanmanız gerekebilir
                 </CardContent>
             </Card>
             <Card {...cardProperty}>
@@ -96,6 +119,9 @@ export default function WebRTC()
                     bu protokol UDP/TCP/TLS bağlantılarını şifrelemede <b>web sitesinin aktif SSL güvenliğini kullanır</b>.
                     Kısacası webrtc güvenliği girdiğiniz sitenin güvenlik oranına
                     göre değişir ki <u>SSL olmayan web sitelerinde çalışmaz</u>
+                    <br /><br />
+                    <A link="caniusertc">Browser Desteği</A><br />
+                    <A link="rtcwebrtc">HTML5 WebRTC Çalışma Taslağı</A>
                 </CardContent>
             </Card>
         </Box>

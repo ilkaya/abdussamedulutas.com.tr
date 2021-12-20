@@ -4,10 +4,10 @@ import { Card, CardContent, CardHeader, Divider, List, ListItem, ListItemText, T
 import moment from "moment";
 
 
-export default function ReactJS()
+export default function IndexedDB()
 {
     useEffect(()=>{
-        document.title = "Abdussamed ULUTAŞ | ReactJS";
+        document.title = "Abdussamed ULUTAŞ | IndexedDB";
     },[]);
 
     let cardProperty = {
@@ -22,67 +22,63 @@ export default function ReactJS()
     }
 
     return <>
-        <dh.H1>WebSoket</dh.H1>
+        <dh.H1>IndexedDB</dh.H1>
         <Box display="flex" flexDirection="row" flexWrap="wrap">
             <Card {...cardProperty}>
                 <CardHeader
-                    title={<dh.H2>WebSoket nedir?</dh.H2>}
+                    title={<dh.H2>IndexedDB nedir?</dh.H2>}
                 />
                 <CardContent style={{textAlign:"justify"}}>
-                    WebSoket, sunucu ile kullanıcı arasında çift yönlü tcp iletişimi sağlayan güvenilir bir teknolojidir.
+                    IndexedDB tarayıcılarda veritabanı benzeri bir yapı ile verileri düzenli olarak depolamanızı yarayan sistemdir
                 </CardContent>
             </Card>
             <Card {...cardProperty}>
                 <CardHeader
-                    title={<dh.H2>Neden WebSoket?</dh.H2>}
+                    title={<dh.H2>Neden IndexedDB?</dh.H2>}
                 />
                 <CardContent style={{textAlign:"justify"}}>
-                    Fetch ve Ajaxın aksine websocket aksi istenilene kadar sunucuya bağlı kalır.
-                    Fetch ve ajax yapıları sunucuya bir kez bağlanır veriyi iletir cevabı aldıktan sonra bağlantılarını kapatırlar.
-                    Sunucu, kullanıcıya herhangi bir durumu veya değişikliği belirtmek için kullanıcının bir sonraki bağlantısını beklemek zorundadır.
-                    Websoket bağlantısı ile sunucuya bağlandıktan sonra hem sunucu hemde kullanıcı tarafında eşzamansız veri gönderilip alınabilir
+                    IndexedDB kullanımı oldukça ucu açık yazılımcılara bırakılmış bir ekosistemdir. Kullanıcının yaptığı bütün işlemleri
+                    depolayarak daha sonra sunucu ile eşitlemeden, kullanıcıya sık sık verdiğiniz verileri düzenli olarak tarayıcı tutmaya kadar
+                    geniş bir kullanım alanına sahiptir, frontend kısmında küçük bir mysql gibi düşünebilirsiniz
                 </CardContent>
             </Card>
             <Card {...cardProperty}>
                 <CardHeader
-                    title={<dh.H2>WebSoketin Avantajı?</dh.H2>}
+                    title={<dh.H2>IndexedDB neler depolayabilir?</dh.H2>}
                 />
                 <CardContent style={{textAlign:"justify"}}>
-                    Sunucu değişimleri hemen bildirebilir.
-                    Kullanıcının sisteminiz içerisinde olduğu veya sayfanızdan ayrıldığını anlık görebilirsiniz.
-                    Sunucunuz her veri iletiminde tcp bağlantısı veya güvenlinir bağlantı (ssl handshake session) kurmak zorunda kalmaz.
-                    Bir kullanıcıdan gelen mesaj diğer kullanıcının bağlantı kurmasını beklemeden iletildiği için kullanıcılar arası iletişim hızlanır
+                    MySQL gibi ilişkisel veritabanlarının aksine, IndexedDB javascript ile oluşturulabilecek ve serileştirilebilen
+                    tüm obje, yazı, sayı, harita, dosya ve listeleri depolayabilir
                 </CardContent>
             </Card>
             <Card {...cardProperty}>
                 <CardHeader
-                    title={<dh.H2>WebSoketin Dezavantajı?</dh.H2>}
+                    title={<dh.H2>IndexedDB Hangi Platformları Kapsıyor?</dh.H2>}
                 />
                 <CardContent style={{textAlign:"justify"}}>
-                    WebSoket çift yönlü tek şeritli yol gibidir, dosya göndermek için kullanılamaz, büyük veriler ilettiğinizde
-                    gönderdiğiniz ileti tamamen karşı tarafa ulaşmadan yeni bir veri gönderemez veya alamazsınız.
-                    Büyük ölçekli bir web sitesinde Websocket bağlantıları arttıkça sunucu her bir TCP/IP bağlantısı için tcp
-                    kontrolleri oturumlar ve ping sürelerini tutacağı için sunucu tarafında internet kartı ve
-                    ram sorunları ortaya çıkmaya bağlayacaktır
+                IndexedDB mobil ve masaüstü farketmeksizin <b>güncel</b> tüm web tarayıcılarında aktif olarak desteklenmektedir 
                 </CardContent>
             </Card>
             <Card {...cardProperty}>
                 <CardHeader
-                    title={<dh.H2>WebSoketin Sunucu Yapılandırması Gerekir mi?</dh.H2>}
+                    title={<dh.H2>IndexedDB Avantajı?</dh.H2>}
                 />
                 <CardContent style={{textAlign:"justify"}}>
-                    WebSocket kullanmanız için sunucu yazılımınızın (yada frameworkünüzün) websoket bağlantılarını
-                    aktif olarak dinlemesi gerekmektedir. Frontend kısmında herhangi bir kuruluma ihtiyaç yoktur
+                    IndexedDB güvenlik açığı yaratmayan tüm sayfalarda global olarak kullanılan ve sık sık değişen/güncellenen/okunan
+                    verileri kullanıcının beğenimlerini, favori listelerini veya tercihlerini tarayıcıda tutarak hem sunucu tarafında hemde
+                    arayüz tarafında güvenli bir şekilde veri işlemenizi sağlayabilir, localStorage ve cache'ye göre oldukça hızlı ve
+                    daha büyük bir depolama alanı sunar
                 </CardContent>
             </Card>
             <Card {...cardProperty}>
                 <CardHeader
-                    title={<dh.H2>WebSoket Hangi Platformları Kapsıyor?</dh.H2>}
+                    title={<dh.H2>IndexedDB Dezavantajı?</dh.H2>}
                 />
                 <CardContent style={{textAlign:"justify"}}>
-                    Websoket mobil ve masaüstü farketmeksizin <b>güncel</b> tüm web tarayıcılarında aktif olarak desteklenmektedir.
-                    Ayrıca .NET ve QT5 gibi bir çok masaüstü yazılımı ve Androidde Java, IOSta Swift ortamlarında rahatça
-                    bağlantı gerçekleştirilebilmektedir
+                    IndexedDB kullanıcı tarafında uyumluluğu oldukça zor bir işlemdir, herhangi bir kaç tarayıcı sekmesinde aynı anda
+                    erişilebilir olduğu için veribütünlüğünü sağlamak için ek koordinasyon gerektirir.
+                    IndexedDB ilişkisel bir veritabanı değildir, tablolar arasında birleştirme veya veriler arasında karmaşık sorgular yapamazsınız.
+                    Bunun yerine tüm veriler arasında eleme yapan bir sorgulama sistemine sahiptir
                 </CardContent>
             </Card>
         </Box>

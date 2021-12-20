@@ -3,11 +3,24 @@ import { Box } from "@mui/system";
 import { Card, CardContent, CardHeader, Divider, List, ListItem, ListItemText, Typography } from "@mui/material";
 import moment from "moment";
 
+function A({link,children})
+{
+    let w = {
+        htmlspec:"https://html.spec.whatwg.org/multipage/web-sockets.html#network",
+        wikipedia:"https://en.wikipedia.org/wiki/WebSocket",
+        mdn:"https://developer.mozilla.org/en-US/docs/Web/API/WebSocket",
+        websocketsrvr:"https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API/Writing_WebSocket_servers",
+        xhr:"https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest",
+        fetch:"https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch"
+    };
+    return children;
+    return <a href={w[link]} target="_blank">{children}</a>;
+}
 
-export default function ReactJS()
+export default function WebSocket()
 {
     useEffect(()=>{
-        document.title = "Abdussamed ULUTAŞ | ReactJS";
+        document.title = "Abdussamed ULUTAŞ | WebSocket";
     },[]);
 
     let cardProperty = {
@@ -29,7 +42,7 @@ export default function ReactJS()
                     title={<dh.H2>WebSoket nedir?</dh.H2>}
                 />
                 <CardContent style={{textAlign:"justify"}}>
-                    WebSoket, sunucu ile kullanıcı arasında çift yönlü tcp iletişimi sağlayan güvenilir bir teknolojidir.
+                    WebSoket, sunucu ile kullanıcı arasında <A link="websocketsrvr"> çift yönlütcp iletişimi</A> sağlayan güvenilir bir teknolojidir.
                 </CardContent>
             </Card>
             <Card {...cardProperty}>
@@ -37,10 +50,14 @@ export default function ReactJS()
                     title={<dh.H2>Neden WebSoket?</dh.H2>}
                 />
                 <CardContent style={{textAlign:"justify"}}>
-                    Fetch ve Ajaxın aksine websocket aksi istenilene kadar sunucuya bağlı kalır.
-                    Fetch ve ajax yapıları sunucuya bir kez bağlanır veriyi iletir cevabı aldıktan sonra bağlantılarını kapatırlar.
+                    <A link="fetch">Fetch</A> ve <A link="xhr">Ajaxın</A> aksine websocket aksi istenilene kadar sunucuya bağlı kalır.
+                    <A link="fetch">Fetch</A> ve <A link="xhr">ajax</A> yapıları sunucuya bir kez bağlanır veriyi iletir cevabı aldıktan sonra bağlantılarını kapatırlar.
                     Sunucu, kullanıcıya herhangi bir durumu veya değişikliği belirtmek için kullanıcının bir sonraki bağlantısını beklemek zorundadır.
                     Websoket bağlantısı ile sunucuya bağlandıktan sonra hem sunucu hemde kullanıcı tarafında eşzamansız veri gönderilip alınabilir
+                    <br/><br/>
+                    <A link="htmlspec">WHATWG</A><br/>
+                    <A link="wikipedia">wikipedia</A><br/>
+                    <A link="mdn">Mozilla Developer Network</A>
                 </CardContent>
             </Card>
             <Card {...cardProperty}>

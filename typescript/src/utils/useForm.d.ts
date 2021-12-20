@@ -1,5 +1,5 @@
 /// <reference types="react" />
-interface useForm {
+interface useForming {
     input(name: string): {
         value: string;
         onChange: (e: React.ChangeEvent<HTMLInputElement>) => any;
@@ -13,6 +13,6 @@ interface useForm {
 }
 export default function useForm(e?: {
     [key: string]: any;
-}): useForm;
+}): useForming;
 export {};
 //# sourceMappingURL=useForm.d.ts.map

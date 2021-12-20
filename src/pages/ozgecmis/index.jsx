@@ -15,11 +15,11 @@ export default function Ozgecmis()
     const styleProps = {
         sx:{
             width:{
-                sm:"20vw",
+                sm:"25vw",
                 xs:"100%",
-                md: "20vw"
+                md: "25vw"
             },
-            maxWidth:{sm:"300px"},
+            maxWidth:{sm:"400px"},
             minWidth:{sm:"300px"}
         },
         maxWidth: "500px",
@@ -27,10 +27,10 @@ export default function Ozgecmis()
     };
 
     return <>
-        <dh.H1>Neden?</dh.H1>
+        <dh.H1>Ben Kimim?</dh.H1>
         <Box display="flex" flexDirection="row" flexWrap="wrap" justifyContent="flex-start">
             <Box {...styleProps}>
-                <Card variant="outlined">
+                <Card variant="elevation" elevation={3}>
                     <CardHeader
                         title={<dh.H2>Ben <b>Kim</b>im?</dh.H2>}
                     />
@@ -41,7 +41,7 @@ export default function Ozgecmis()
                 </Card>
             </Box>
             <Box {...styleProps}>
-                <Card variant="outlined">
+                <Card variant="elevation" elevation={3}>
                     <CardHeader
                         title={<dh.H2>Ben <b>Ne</b>yim?</dh.H2>}
                     />
@@ -61,7 +61,7 @@ export default function Ozgecmis()
                 </Card>
             </Box>
             <Box {...styleProps}>
-                <Card variant="outlined">
+                <Card variant="elevation" elevation={3}>
                     <CardHeader
                         title={<dh.H2>Ben <b>Nerede</b>yim?</dh.H2>}
                     />
@@ -84,7 +84,7 @@ export default function Ozgecmis()
                 </Card>
             </Box>
             <Box {...styleProps}>
-                <Card variant="outlined">
+                <Card variant="elevation" elevation={3}>
                     <CardHeader
                         title={<dh.H2>Ben <b>Nasıl</b> Biriyim?</dh.H2>}
                     />
@@ -95,7 +95,7 @@ export default function Ozgecmis()
                 </Card>
             </Box>
             <Box {...styleProps}>
-                <Card variant="outlined">
+                <Card variant="elevation" elevation={3}>
                     <CardHeader
                         title={<dh.H2>Peki <b>Neden</b> Bu Sektördeyim?</dh.H2>}
                     />
@@ -106,7 +106,7 @@ export default function Ozgecmis()
                 </Card>
             </Box>
             <Box {...styleProps}>
-                <Card variant="outlined">
+                <Card variant="elevation" elevation={3}>
                     <CardHeader
                         title={<dh.H2>Ben <b>Ne zaman</b>dır Yazılım Sektöründeyim?</dh.H2>}
                     />
