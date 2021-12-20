@@ -15,24 +15,24 @@ import Content from "./pages/partials/Context";
 import ReactJS from "./pages/frontend/react/index"
 import Websocket from "./pages/frontend/websocket/index"
 import indexeddb from "./pages/frontend/indexeddb/index"
+import canvas from "./pages/frontend/canvas/index"
+import webworker from "./pages/frontend/webworker/index"
 import Iletisim from "./pages/iletisim";
+
+
 
 function App()
 {
     const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
 
-    const theme = React.useMemo(
-      () =>
-        createTheme({
-          palette: {
+    const theme = createTheme({
+        palette: {
             mode: prefersDarkMode ? 'dark' : 'light',
-          },
-          typography:{
-              fontFamily:"Cantarell"
-          }
-        })
-      [prefersDarkMode]
-    );
+        },
+        typography:{
+            fontFamily:"Cantarell"
+        }
+    });
     
     return <Provider store={store}>
         <ThemeProvider theme={theme}>
@@ -45,6 +45,8 @@ function App()
                         <Route path="/frontend/react" component={ReactJS}/>
                         <Route path="/frontend/websocket" component={Websocket}/>
                         <Route path="/frontend/indexeddb" component={indexeddb}/>
+                        <Route path="/frontend/canvas" component={canvas}/>
+                        <Route path="/frontend/webworker" component={webworker}/>
                         <Route path="/iletisim" component={Iletisim}/>
                         <Route exact path="/"> <Redirect /> </Route>
                     </Switch>
