@@ -106,3 +106,4 @@ dist
 *.php
 
 build
+build/**/*
