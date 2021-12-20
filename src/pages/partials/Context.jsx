@@ -15,7 +15,7 @@ export default function Content({select,...props})
             <Box sx={{width:{sm:"20vw",xs:"100%"},maxWidth:{sm:"300px"},minWidth:{sm:"200px"},p:{md:1,sm:0}}} mb={2}>
                 <Paper variant="elevation" elevation={5} style={{width:"100%",height:"100%",display:"flex",flexDirection:"column"}}>
                     <Box>
-                        <img async defer src={profile_webp} className="profile-image" alt="Profile Image" />
+                        <img async defer src={profile_webp} style={{display:"block"}} height="300px" className="profile-image" alt="Profile Image" />
                     </Box>
                     <Box flex={1} overflow="auto">
                         <List>
@@ -42,37 +42,37 @@ export default function Content({select,...props})
                             </CollapsedListItem>
                             <Divider />
                             <CollapsedListItem primary="Backend Teknolojiler">
-                                <RouteItem url="/backend/ffmpeg" title="FFMPEG" text="Video, Resim, Ses kodlama" />
+                                <RouteItem soon url="/backend/ffmpeg" title="FFMPEG" text="Video, Resim, Ses kodlama" />
                                 <Divider />
-                                <RouteItem url="/backend/nodejs" title="NodeJS" text="WebSocket, Restfull API, HTTP/2.0"  />
+                                <RouteItem soon url="/backend/nodejs" title="NodeJS" text="WebSocket, Restfull API, HTTP/2.0"  />
                                 <Divider />
-                                <RouteItem url="/backend/nginx" title="NGINX" text="Reverse Proxy, Automated SSL, Multidomain Sunucu" />
+                                <RouteItem soon url="/backend/nginx" title="NGINX" text="Reverse Proxy, Automated SSL, Multidomain Sunucu" />
                                 <Divider />
-                                <RouteItem url="/backend/cryptology" title="Kriptoloji" text="OpenSSL, AES128 GCM, Hashing, Diffie Hellman, Akış Şifreleme" />
+                                <RouteItem soon url="/backend/cryptology" title="Kriptoloji" text="OpenSSL, AES128 GCM, Hashing, Diffie Hellman, Akış Şifreleme" />
                                 <Divider />
-                                <RouteItem url="/backend/stunturn" title="TURN/STUN" text="Görüntülü / Sesli Görüşme / Ekran Paylaşımı" />
+                                <RouteItem soon url="/backend/stunturn" title="TURN/STUN" text="Görüntülü / Sesli Görüşme / Ekran Paylaşımı" />
                                 <Divider />
-                                <RouteItem url="/backend/mysql" title="MariaDB" text="İlişkisel Veritabanı" />
+                                <RouteItem soon url="/backend/mysql" title="MariaDB" text="İlişkisel Veritabanı" />
                                 <Divider />
-                                <RouteItem url="/backend/redis" title="Redis" text="Bellek Tabanlı Önbellek Depolama" />
+                                <RouteItem soon url="/backend/redis" title="Redis" text="Bellek Tabanlı Önbellek Depolama" />
                                 <Divider />
                             </CollapsedListItem>
                             <Divider />
                             <CollapsedListItem primary="Manjaro Linux">
-                                <RouteItem url="/manjaro/neden" title="Neden Manjaro?" text="Güncel Linüx Kernel, Python, JVM, GCC, PHP, Nodejs Hızlandırma Teknolojisi" />
+                                <RouteItem soon url="/manjaro/neden" title="Neden Manjaro?" text="Güncel Linüx Kernel, Python, JVM, GCC, PHP, Nodejs Hızlandırma Teknolojisi" />
                                 <Divider />
-                                <RouteItem url="/manjaro/kurulum" title="Güvenli ve Hızlı Kurulum" text="64bit Makine, Kurmadan Önce Canlı Test Etme" />
+                                <RouteItem soon url="/manjaro/kurulum" title="Güvenli ve Hızlı Kurulum" text="64bit Makine, Kurmadan Önce Canlı Test Etme" />
                                 <Divider />
-                                <RouteItem url="/manjaro/ozellestirme" title="Kişiselleştirme" text="KDE Masaüstü, Dil, Zaman, Bölge ve Güç Ayarları" />
+                                <RouteItem soon url="/manjaro/ozellestirme" title="Kişiselleştirme" text="KDE Masaüstü, Dil, Zaman, Bölge ve Güç Ayarları" />
                                 <Divider />
-                                <RouteItem url="/manjaro/yazilimlar" title="Pacman / Pamac" text="Hızlı Yazılım Kurma Kaldırma ve Sistem Güncellemesi Güncelleme" />
+                                <RouteItem soon url="/manjaro/yazilimlar" title="Pacman / Pamac" text="Hızlı Yazılım Kurma Kaldırma ve Sistem Güncellemesi Güncelleme" />
                                 <Divider />
-                                <RouteItem url="/manjaro/mhwd" title="MHWD" text="AMD, NVidia, İntel Çoklu Ekran Kartı Sistemleri İçin Driver Kurma Kaldırma" />
+                                <RouteItem soon url="/manjaro/mhwd" title="MHWD" text="AMD, NVidia, İntel Çoklu Ekran Kartı Sistemleri İçin Driver Kurma Kaldırma" />
                                 <Divider />
                             </CollapsedListItem>
                             <Divider />
                             <CollapsedListItem primary="Kendi Projelerim">
-                                <RouteItem url="/github/hemexjs" title="HemexJS" text="Metin Madenciliği Format Biçimlendirme, İşleme ve Dönüştürme Kütüphanesi" />
+                                <RouteItem soon url="/github/hemexjs" title="HemexJS" text="Metin Madenciliği Format Biçimlendirme, İşleme ve Dönüştürme Kütüphanesi" />
                                 <Divider />
                             </CollapsedListItem>
                             <Divider />
@@ -131,7 +131,7 @@ function RouteItem({url,title,text,soon})
     }
     return <>
         <ListItemButton onClick={click} selected={page == url} disabled={soon}>
-            <ListItemText primary={title} secondary={soon ? "Eklenmemiş" : text}/>
+            <ListItemText primary={title} secondary={soon ? "Henüz Yazı Eklenmemiş" : text}/>
         </ListItemButton>
     </>;
 }

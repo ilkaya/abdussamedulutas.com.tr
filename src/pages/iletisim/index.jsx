@@ -29,7 +29,7 @@ export default function Iletisim()
     return <>
         <dh.H1>Bana Ulaşın</dh.H1>
         <Box display="flex" flexDirection="row" flexWrap="wrap" justifyContent="flex-start">
-            <Box margin={2} flex={1}>
+            {/*<Box margin={2} flex={1}>
                 <Card variant="elevation" elevation={3}>
                     <CardHeader
                         title={<dh.H2>İletişim Formu Üzerinden</dh.H2>}
@@ -38,7 +38,7 @@ export default function Iletisim()
                         <ContactForm />
                     </CardContent>
                 </Card>
-            </Box>
+            </Box>*/}
             <Box {...styleProps}>
                 <Card variant="elevation" elevation={3}>
                     <CardHeader
