@@ -1,15 +1,16 @@
 import { useState } from "react";
 
-interface useForm
+interface useForming
 {
     input(name:string) : {value:string,onChange:(e:React.ChangeEvent<HTMLInputElement>) => any};
     val(name:string,value?:string) : string|void;
     get(name:string) : any;
     set(name:string,value:any);
     state: {[key:string]:any};
+    reset(): void;
 }
 
-export default function useForm(e?:{[key:string]:any}) : useForm
+export default function useForm(e?:{[key:string]:any}) : useForming
 {
     let [data,setData] = useState<{[key:string]:any}>(e);
     function set(name:string,value:any)
@@ -22,6 +23,9 @@ export default function useForm(e?:{[key:string]:any}) : useForm
     function get(name:string) : any
     {
         return data[name]
+    }
+    function reset(){
+        setData(e);
     }
     function val(name:string,value?:string) : string|void
     {
@@ -44,6 +48,7 @@ export default function useForm(e?:{[key:string]:any}) : useForm
         val,
         get,
         set,
-        state:data
+        state:data,
+        reset
     }
 }

@@ -4,10 +4,10 @@ import { Card, CardContent, CardHeader, Divider, List, ListItem, ListItemText, T
 import moment from "moment";
 
 
-export default function ReactJS()
+export default function WebSocket()
 {
     useEffect(()=>{
-        document.title = "Abdussamed ULUTAŞ | ReactJS";
+        document.title = "Abdussamed ULUTAŞ | WebSocket";
     },[]);
 
     let cardProperty = {

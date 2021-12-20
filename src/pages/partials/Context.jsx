@@ -13,7 +13,7 @@ export default function Content({select,...props})
     let history = useHistory();
     return <>
         <Box flex={1} m={2} display={"flex"} sx={{flexDirection:{md:"row",xs:"column"},overflow: {md:"auto",xs:"visible"}}}>
-            <Box sx={{width:{sm:"20vw",xs:"100%"},maxWidth:{sm:"300px"},minWidth:{sm:"200px"}}} mb={2}>
+            <Box sx={{width:{sm:"20vw",xs:"100%"},maxWidth:{sm:"300px"},minWidth:{sm:"200px"},p:{md:1,sm:0}}} mb={2}>
                 <Paper variant="elevation" elevation={5} style={{width:"100%",height:"100%",display:"flex",flexDirection:"column"}}>
                     <Box>
                         <img async defer src={profile_webp} className="profile-image" alt="Profile Image" />
@@ -42,84 +42,88 @@ export default function Content({select,...props})
                                     <ListItemText primary="IndexedDB" secondary="Tarayıcı Tarafında İlişkisel Veritabanı"/>
                                 </ListItemButton>
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/frontend/canvas")} selected={select === 3}>
-                                    <ListItemText primary="Canvas" secondary="Düşük Seviyeli Grafik İşleme"/>
+                                <ListItemButton onClick={e => history.push("/frontend/canvas")} selected={select === 3} disabled>
+                                    <ListItemText primary="Canvas" x-secondary="Düşük Seviyeli Grafik İşleme" secondary="Çok Yakında"/>
                                 </ListItemButton>
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/frontend/webworker")} selected={select === 5}>
-                                    <ListItemText primary="Web Worker" secondary="Thread Yapısı"/>
+                                <ListItemButton onClick={e => history.push("/frontend/webworker")} selected={select === 5} disabled>
+                                    <ListItemText primary="Web Worker" x-secondary="Thread Yapısı" secondary="Çok Yakında"/>
                                 </ListItemButton>
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/frontend/mediastream")} selected={select === 6}>
-                                    <ListItemText primary="Media Stream" secondary="Kamera, Mikrofon Video"/>
+                                <ListItemButton onClick={e => history.push("/frontend/mediastream")} selected={select === 6} disabled>
+                                    <ListItemText primary="Media Stream" x-secondary="Kamera, Mikrofon Video" secondary="Çok Yakında"/>
                                 </ListItemButton>
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/frontend/cachestorage")} selected={select === 7}>
-                                    <ListItemText primary="Cache Storage" secondary="Tarayıcı Önbelleğine Veri Yazma/Okuma"/>
+                                <ListItemButton onClick={e => history.push("/frontend/cachestorage")} selected={select === 7} disabled>
+                                    <ListItemText primary="Cache Storage" x-secondary="Tarayıcı Önbelleğine Veri Yazma/Okuma" secondary="Çok Yakında"/>
                                 </ListItemButton>
                                 <Divider />
                             </CollapsedListItem>
                             <Divider />
                             <CollapsedListItem primary="Backend Teknolojiler">
-                                <ListItemButton onClick={e => history.push("/backend/ffmpeg")} selected={select === 8}>
-                                    <ListItemText primary="FFMPEG" secondary="Video, Resim, Ses kodlama"/>
+                                <ListItemButton onClick={e => history.push("/backend/ffmpeg")} selected={select === 8} disabled>
+                                    <ListItemText primary="FFMPEG" x-secondary="Video, Resim, Ses kodlama" secondary="Çok Yakında"/>
                                 </ListItemButton>
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/backend/nodejs")} selected={select === 9}>
-                                    <ListItemText primary="NodeJS" secondary="WebSocket, Restfull API, HTTP/2.0"/>
+                                <ListItemButton onClick={e => history.push("/backend/nodejs")} selected={select === 9} disabled>
+                                    <ListItemText primary="NodeJS" x-secondary="WebSocket, Restfull API, HTTP/2.0" secondary="Çok Yakında"/>
                                 </ListItemButton>
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/backend/nginx")} selected={select === 10}>
-                                    <ListItemText primary="NGINX" secondary="Reverse Proxy, Automated SSL, Multidomain Sunucu"/>
+                                <ListItemButton onClick={e => history.push("/backend/nginx")} selected={select === 10} disabled>
+                                    <ListItemText primary="NGINX" x-secondary="Reverse Proxy, Automated SSL, Multidomain Sunucu" secondary="Çok Yakında"/>
                                 </ListItemButton>
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/backend/cryptology")} selected={select === 11}>
-                                    <ListItemText primary="Kriptoloji" secondary="OpenSSL, AES128 GCM, Hashing, Diffie Hellman, Akış Şifreleme"/>
+                                <ListItemButton onClick={e => history.push("/backend/cryptology")} selected={select === 11} disabled>
+                                    <ListItemText primary="Kriptoloji" x-secondary="OpenSSL, AES128 GCM, Hashing, Diffie Hellman, Akış Şifreleme" secondary="Çok Yakında"/>
                                 </ListItemButton>
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/backend/stunturn")} selected={select === 12}>
-                                    <ListItemText primary="TURN/STUN" secondary="Görüntülü / Sesli Görüşme / Ekran Paylaşımı"/>
+                                <ListItemButton onClick={e => history.push("/backend/stunturn")} selected={select === 12} disabled>
+                                    <ListItemText primary="TURN/STUN" x-secondary="Görüntülü / Sesli Görüşme / Ekran Paylaşımı" secondary="Çok Yakında"/>
                                 </ListItemButton>
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/backend/mysql")} selected={select === 13}>
-                                    <ListItemText primary="MariaDB" secondary="İlişkisel Veritabanı"/>
+                                <ListItemButton onClick={e => history.push("/backend/mysql")} selected={select === 13} disabled>
+                                    <ListItemText primary="MariaDB" x-secondary="İlişkisel Veritabanı" secondary="Çok Yakında"/>
                                 </ListItemButton>
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/backend/redis")} selected={select === 14}>
-                                    <ListItemText primary="Redis" secondary="Bellek Tabanlı Önbellek Depolama"/>
+                                <ListItemButton onClick={e => history.push("/backend/redis")} selected={select === 14} disabled>
+                                    <ListItemText primary="Redis" x-secondary="Bellek Tabanlı Önbellek Depolama" secondary="Çok Yakında"/>
                                 </ListItemButton>
                                 <Divider />
                             </CollapsedListItem>
                             <Divider />
                             <CollapsedListItem primary="Manjaro Linux">
-                                <ListItemButton onClick={e => history.push("/manjaro/neden")} selected={select === 15}>
-                                    <ListItemText primary="Neden Manjaro?" secondary="Güncel Linüx Kernel, Python, JVM, GCC, PHP, Nodejs Hızlandırma Teknolojisi"/>
+                                <ListItemButton onClick={e => history.push("/manjaro/neden")} selected={select === 15} disabled>
+                                    <ListItemText primary="Neden Manjaro?" x-secondary="Güncel Linüx Kernel, Python, JVM, GCC, PHP, Nodejs Hızlandırma Teknolojisi" secondary="Çok Yakında"/>
                                 </ListItemButton>
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/manjaro/kurulum")} selected={select === 16}>
-                                    <ListItemText primary="Güvenli ve Hızlı Kurulum" secondary="64bit Makine, Kurmadan Önce Canlı Test Etme"/>
+                                <ListItemButton onClick={e => history.push("/manjaro/kurulum")} selected={select === 16} disabled>
+                                    <ListItemText primary="Güvenli ve Hızlı Kurulum" x-secondary="64bit Makine, Kurmadan Önce Canlı Test Etme" secondary="Çok Yakında"/>
                                 </ListItemButton>
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/manjaro/ozellestirme")} selected={select === 17}>
-                                    <ListItemText primary="Kişiselleştirme" secondary="KDE Masaüstü, Dil, Zaman, Bölge ve Güç Ayarları"/>
+                                <ListItemButton onClick={e => history.push("/manjaro/ozellestirme")} selected={select === 17} disabled>
+                                    <ListItemText primary="Kişiselleştirme" x-secondary="KDE Masaüstü, Dil, Zaman, Bölge ve Güç Ayarları" secondary="Çok Yakında"/>
                                 </ListItemButton>
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/manjaro/yazilimlar")} selected={select === 17}>
-                                    <ListItemText primary="Pacman / Pamac" secondary="Hızlı Yazılım Kurma Kaldırma ve Sistem Güncellemesi Güncelleme"/>
+                                <ListItemButton onClick={e => history.push("/manjaro/yazilimlar")} selected={select === 17} disabled>
+                                    <ListItemText primary="Pacman / Pamac" x-secondary="Hızlı Yazılım Kurma Kaldırma ve Sistem Güncellemesi Güncelleme" secondary="Çok Yakında"/>
                                 </ListItemButton>
                                 <Divider />
-                                <ListItemButton onClick={e => history.push("/manjaro/mhwd")} selected={select === 17}>
-                                    <ListItemText primary="MHWD" secondary="AMD, NVidia, İntel Çoklu Ekran Kartı Sistemleri İçin Driver Kurma Kaldırma"/>
+                                <ListItemButton onClick={e => history.push("/manjaro/mhwd")} selected={select === 17} disabled>
+                                    <ListItemText primary="MHWD" x-secondary="AMD, NVidia, İntel Çoklu Ekran Kartı Sistemleri İçin Driver Kurma Kaldırma" secondary="Çok Yakında"/>
                                 </ListItemButton>
                                 <Divider />
                             </CollapsedListItem>
                             <Divider />
                             <CollapsedListItem primary="Kendi Projelerim">
-                                <ListItemButton onClick={e => history.push("/github/hemexjs")} selected={select === 15}>
-                                    <ListItemText primary="HemexJS" secondary="Metin Madenciliği Format Biçimlendirme, İşleme ve Dönüştürme Kütüphanesi"/>
+                                <ListItemButton onClick={e => history.push("/github/hemexjs")} selected={select === 15} disabled>
+                                    <ListItemText primary="HemexJS" x-secondary="Metin Madenciliği Format Biçimlendirme, İşleme ve Dönüştürme Kütüphanesi" secondary="Çok Yakında"/>
                                 </ListItemButton>
                                 <Divider />
                             </CollapsedListItem>
+                            <Divider />
+                            <ListItemButton onClick={e => history.push("/iletisim")} selected={select === 15}>
+                                <ListItemText primary="Bana Ulaşın"/>
+                            </ListItemButton>
                         </List>
                     </Box>
                 </Paper>
