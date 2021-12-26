@@ -42,9 +42,9 @@ export default function Content({select,...props})
                             </CollapsedListItem>
                             <Divider />
                             <CollapsedListItem primary="Backend Teknolojiler">
-                                <RouteItem soon url="/backend/ffmpeg" title="FFMPEG" text="Video, Resim, Ses kodlama" />
+                                <RouteItem url="/backend/ffmpeg" title="FFMPEG" text="Video, Resim, Ses kodlama" />
                                 <Divider />
-                                <RouteItem soon url="/backend/nodejs" title="NodeJS" text="WebSocket, Restfull API, HTTP/2.0"  />
+                                <RouteItem url="/backend/nodejs" title="NodeJS" text="WebSocket, Restfull API, HTTP/2.0"  />
                                 <Divider />
                                 <RouteItem soon url="/backend/nginx" title="NGINX" text="Reverse Proxy, Automated SSL, Multidomain Sunucu" />
                                 <Divider />
